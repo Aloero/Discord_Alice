@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package stream;
+
+option go_package = "../proto";
+
+service StreamService {
+    rpc Chat(Message) returns (Response);
+}
+
+message Message {
+    bytes body = 1;  // Используем bytes для отправки среза байтов
+}
+
+message Response {
+    string body = 1;  // Используем string для получения строки в ответ
+}
